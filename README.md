@@ -10,6 +10,32 @@ To use all features of this SDK, a client app must be registered on the [SBB API
 
 
 
+## Setup
+
+
+
+### Permissions
+
+Android requires that you request permission from the user at runtime in order to scan for beacons. The specific 
+runtime permissions you must request depend on the Android SDK version you are targeting and the version of Android on 
+which your app runs.
+
+Add the following permissions to your app's manifest file::
+
+``` xml                     
+<uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+```
+
+To detect beacons in the background, you must also add:
+
+``` xml
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+```
+
+
+
 ## Getting started
 
 Create a new [BeaconSDK][900] instance.
