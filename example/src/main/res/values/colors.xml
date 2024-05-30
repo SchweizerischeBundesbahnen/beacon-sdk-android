@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFF0000</color>
+    <color name="splash_screen_background">#FFFF0000</color>
+    <color name="red">#FFC51416</color>
+    <color name="dark_red">#FFAF1602</color>
+    <color name="anthracite">#FF333333</color>
+    <color name="gray_1">#FFEEEEEE</color>
+    <color name="gray_2">#FFDDDDDD</color>
+    <color name="gray_3">#FF767676</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
