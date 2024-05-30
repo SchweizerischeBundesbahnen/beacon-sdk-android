@@ -1,0 +1,29 @@
+name: Build SDK and example app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build beacon-sdk
+        run: ./gradlew :beacon-sdk:assemble
+      - name: Test beacon-sdk
+        run: ./gradlew :beacon-sdk:test
+      - name: Build example
+        run: ./gradlew :example:assembleDebug
