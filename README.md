@@ -1,4 +1,6 @@
-# Beacon SDK for Android
+# Beacon SDK 0.4.0
+
+[![](https://jitpack.io/v/SchweizerischeBundesbahnen/beacon-sdk-android.svg)](https://jitpack.io/#SchweizerischeBundesbahnen/beacon-sdk-android)
 
 An Android library providing APIs to interact with beacons.
 
@@ -12,7 +14,26 @@ To use all features of this SDK, a client app must be registered on the [SBB API
 
 ## Setup
 
+To add the Beacon SDK to your app you must add the [JitPack][9] repository to your apps repositories. Add it in your 
+root `build.gradle.kts` at the end of repositories:
 
+``` kotlin                     
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Add the Beacon SDK dependency to your `app/build.gradle.kts`:
+
+``` kotlin                     
+dependencies {
+    implementation 'com.github.SchweizerischeBundesbahnen:beacon-sdk-android:{latest-release}'
+}
+```
 
 ### Permissions
 
@@ -130,6 +151,7 @@ This project is licensed under [MIT](LICENSE.md).
 [6]: http://www.davidgyoungtech.com/2017/08/07/beacon-detection-with-android-8
 [7]: https://developer.android.com/develop/background-work/services/foreground-services
 [8]: https://kotlinlang.org/docs/flow.html
+[9]: https://jitpack.io/
 
 [800]: example
 [801]: example/src/main/java/ch/allianceswisspass/beaconsdk/example/Installation.kt
