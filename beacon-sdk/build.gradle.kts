@@ -57,7 +57,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.mockito:mockito-core:5.10.0")
     testImplementation("com.google.truth:truth:1.3.0")
-    testImplementation("org.slf4j:slf4j-simple:2.0.12")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Uncomment the next line to enable logging in tests
+    // testImplementation("org.slf4j:slf4j-simple:2.0.12")
 }
