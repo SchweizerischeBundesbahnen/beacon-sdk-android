@@ -3,10 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("plugin.serialization") version "1.9.0"
     id("maven-publish")
-    id("com.jfrog.artifactory") version "5.2.0"
 }
-
-apply(from = "artifactory.gradle")
 
 android {
     namespace = "ch.allianceswisspass.beaconsdk"
@@ -41,6 +38,12 @@ android {
     testOptions {
         unitTests.isReturnDefaultValues = true
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -59,4 +62,18 @@ dependencies {
     testImplementation("com.google.truth:truth:1.3.0")
     // Uncomment the next line to enable logging in tests
     // testImplementation("org.slf4j:slf4j-simple:2.0.12")
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "ch.allianceswisspass.beaconsdk"
+            artifactId = "beacon-sdk"
+            version = "0.4.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
