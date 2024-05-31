@@ -13,11 +13,23 @@ import java.util.*
 @RunWith(MockitoJUnitRunner::class)
 class UseCaseApiTest {
 
+    private val clientId: String? by lazy {
+        System.getenv("USE_CASE_API_CLIENT_ID")
+    }
+
+    private val clientSecret: String? by lazy {
+        System.getenv("USE_CASE_API_CLIENT_SECRET")
+    }
+
+    private val enabled: Boolean by lazy {
+        !clientId.isNullOrBlank() && !clientSecret.isNullOrBlank()
+    }
+
     private val authenticator: Authenticator by lazy {
         Authenticator(
             tokenUrl = "https://login.microsoftonline.com/2cda5d11-f0ac-46b3-967d-af1b2e1bd01a/oauth2/v2.0/token",
-            clientId = "b729770b-bb21-41dd-8a90-2591d069fe9c",
-            clientSecret = "wqo8Q~nLgdLUSwuieBTLOg-ntfjWuQWUAydtudBk",
+            clientId = clientId!!,
+            clientSecret = clientSecret!!,
             scope = "api://75c2c871-016c-4677-ad25-e5b08b104257/.default",
         )
     }
@@ -78,6 +90,7 @@ class UseCaseApiTest {
 
     @Test
     fun testFeedbacks() = runBlocking {
+        if (!enabled) return@runBlocking
         val scanTimestamp = Date()
         // Eddystone EID
         val mockScanResult1 = Mockito.mock(ScanResult::class.java)
@@ -117,6 +130,7 @@ class UseCaseApiTest {
 
     @Test
     fun testResolve() = runBlocking {
+        if (!enabled) return@runBlocking
         val scanTimestamp = Date()
         // Eddystone EID
         val mockScanResult1 = Mockito.mock(ScanResult::class.java)
