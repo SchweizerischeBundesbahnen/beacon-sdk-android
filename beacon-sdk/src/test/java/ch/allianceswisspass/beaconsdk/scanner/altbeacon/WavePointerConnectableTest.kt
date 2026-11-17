@@ -45,6 +45,7 @@ class WavePointerConnectableTest {
         assertThat(scanResult?.beacon?.type).isEqualTo(BeaconType.WavePointerConnectable)
         val wavePointerConnectable = scanResult!!.beacon as WavePointerConnectable
         assertThat(wavePointerConnectable.serialNumber).isEqualTo("E23140000003031")
+        assertThat(wavePointerConnectable.batteryVoltage).isEqualTo(0x0df2) // 3570 mV
     }
 
     @Test
@@ -77,6 +78,7 @@ class WavePointerConnectableTest {
         assertThat(scanResult?.beacon?.type).isEqualTo(BeaconType.WavePointerConnectable)
         val wavePointerConnectable = scanResult!!.beacon as WavePointerConnectable
         assertThat(wavePointerConnectable.serialNumber).isEqualTo("E23140000003033")
+        assertThat(wavePointerConnectable.batteryVoltage).isEqualTo(0x0dfe) // 3582 mV
     }
 
     @Test
@@ -110,5 +112,6 @@ class WavePointerConnectableTest {
         assertThat(scanResult?.beacon?.type).isEqualTo(BeaconType.WavePointerConnectable)
         val wavePointerConnectable = scanResult!!.beacon as WavePointerConnectable
         assertThat(wavePointerConnectable.serialNumber).isEqualTo("E23140000003034")
+        assertThat(wavePointerConnectable.batteryVoltage).isEqualTo(0x0dfe) // 3582 mV
     }
 }
