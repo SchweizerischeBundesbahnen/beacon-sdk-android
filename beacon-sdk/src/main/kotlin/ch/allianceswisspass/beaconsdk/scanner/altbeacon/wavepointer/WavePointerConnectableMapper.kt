@@ -73,7 +73,7 @@ private val Beacon.serialNumber: String
 
 private val Beacon.batteryVoltage: Int
     get() {
-        return txPower
+        return dataFields[0].toInt()
     }
 
 private val Beacon.firmwareVersion: UByte
