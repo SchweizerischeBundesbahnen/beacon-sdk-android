@@ -1,4 +1,4 @@
-# Beacon SDK 0.4.0
+# Beacon SDK 0.4.1
 
 [![](https://jitpack.io/v/SchweizerischeBundesbahnen/beacon-sdk-android.svg)](https://jitpack.io/#SchweizerischeBundesbahnen/beacon-sdk-android)
 
